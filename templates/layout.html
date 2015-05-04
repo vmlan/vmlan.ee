@@ -1,0 +1,74 @@
+{% if not tab %}
+  {% set tab = {} %}
+{% endif %}
+<!doctype html>
+<html lang="et">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Väike-Maarja LAN 2015 - {{ title }}</title>
+  <meta name="description" content="Väike-Maarja LAN 2015 kodukas kust leiab ürituse uudised, info ja registreerimise">
+  <meta name="keywords" content="Väike-Marja,LAN,Party,vmlan">
+  <meta name="author" content="Arti Zirk">
+
+  <meta name="twitter:card" value="summary">
+
+  <meta property="og:title" content="Väike-Maarja LAN 2015">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="http://vmlan.arti.ee/" />
+  <meta property="og:description" content="Väike-Maarja LAN 2015 kodukas kust leiab ürituse uudised, info ja registreerimise" /> 
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+  <!--<link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">-->
+  <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">-->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <!--[if lt IE 9]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+  <div class="container">
+    <div class="header clearfix">
+      <nav>
+        <ul class="nav nav-pills pull-right" id="desktop-menu">
+          <li class="{{ tab['miskusmillal'] }}"><a href="{{ url_for('miskusmillal') }}">Mis? Kus? Millal?</a></li>
+          <li class="{{ tab['registreeru'] }}"><a href="{{ url_for('registreeru') }}">Registreeru</a></li>
+          <!--<li class="{{ tab['live'] }}"><a href="{{ url_for('live') }}">Live</a></li>-->
+          <li class="{{ tab['kontakt'] }}"><a href="{{ url_for('kontakt') }}">Kontakt</a></li>
+          <!--<li><a href="#">Asteroids</a></li>-->
+        </ul>
+        <ul class="nav nav-pills pull-right" id="mobile-menu">
+          <li class="active">
+            <a href="#" class="" type="button" id="main-menu-dropdown-btn" data-toggle="dropdown" aria-expanded="false">
+              {{ title }}
+              <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu pull-right" role="menu" aria-labelledby="main-menu-dropdown-btn">
+              <li class="{{ tab['miskusmillal'] }}"><a href="{{ url_for('miskusmillal') }}">Mis? Kus? Millal?</a></li>
+              <li class="{{ tab['registreeru'] }}"><a href="{{ url_for('registreeru') }}">Registreeru</a></li>
+              <!--<li class="{{ tab['live'] }}"><a href="{{ url_for('live') }}">Live</a></li>-->
+              <li class="{{ tab['kontakt'] }}"><a href="{{ url_for('kontakt') }}">Kontakt</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <h3 class="text-muted">Väike-Maarja LAN</h3>
+    </div>
+
+    {% block content %}{% endblock %}
+    
+    <footer class="footer">Korraldajad: 
+      <a href="{{ url_for('kontakt') }}">Arti Zirk</a>
+      ja <a href="{{ url_for('kontakt') }}">Karl-Oskar Õun</a>
+      <div class="pull-right">lähtekood: <a href="https://github.com/vmlan/vmlan.ee">Github</a></div>
+    </footer>
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+</body>
+</html>
+
