@@ -1,0 +1,26 @@
+{% set title = "Mis? Kus? Millal?" %}
+{% set tab = {"miskusmillal":"active"} %}
+{% extends "layout.html" %}
+{% block content %}
+<header><h2>Mis siin Väike-Maarja LAN'il toimuma hakkab?</h2></header>
+<p>Kuna tegu on võrgu peoga siis muidugi mängime mänge.</p>
+<dl class="dl-horizontal dl-horizontal-long">
+  <dt>Counter-Strike: Global Offensive</dt>
+  <dd>On põhiline mäng mida mängime.</dd>
+  <dd>Täpsem info ilmub siia varsti.</dd>
+  <dd>Serveri conf läheb üles githubi <a href="https://github.com/vmlan">https://github.com/vmlan</a>.</dd>
+</dl>
+<p>Paneme üles ka väikese retro nurga juba üsnagi antiiksete arvutitega (vanim on aastast 1989) mille peal natuke vanu häid klassikuid mängida, nagu näiteks:
+<dl class="dl-horizontal">
+    <dt>DOOM</dt>
+    <dd>Arvatavasti üksik mängijana aga loodetavasti saab ka multiplayeri käima</dd>
+    <dt>Quake</dt>
+    <dd>Paneme deathmatch serveri püsti</dd>
+    <dt>Supaplex</dt>
+    <dd>Singel player</dd>
+</dl>
+<p>ja veel midagi huvitavat...</p>
+<br>
+
+<p>Pileti info asub <a href="{{ url_for('registreeru') }}">registreerumis</a> lehel</p>
+{% endblock %}

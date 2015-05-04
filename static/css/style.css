@@ -108,3 +108,12 @@ body {
   width: 100% !important;
   height: 100% !important;
 }
+
+
+.dl-horizontal-long dt {
+    width: 230px;
+}
+
+.dl-horizontal-long dd {
+    margin-left: 235px;
+}

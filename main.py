@@ -8,6 +8,10 @@ app = Flask(__name__)
 def miskusmillal():
     return render_template('miskusmillal.html')
 
+@app.route('/mis')
+def mis():
+    return render_template('mis.html')
+
 @app.route("/registreeru")
 def registreeru():
     return render_template("registreeru.html")

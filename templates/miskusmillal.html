@@ -2,8 +2,9 @@
 {% set tab = {"miskusmillal":"active"} %}
 {% extends "layout.html" %}
 {% block content %}
-<header><h2>Mis?</h2></header>
+<header><h2><a href="{{ url_for('mis') }}">Mis?</a></h2></header>
 <p>Väike-Maarja LAN - Mängime CS:GO-d ja veel väiksemaid mini game, lisaks toimub ka väike retro nurk kus saab üksteisega mõõtu võtta klassikalistes mängudes nagu näiteks DOOM ja Quake.</p>
+<p>Rohkem infot <a href="{{ url_for('mis') }}">siin</a></p>
 
 <header><h2>Millal?</h2></header>
 <p>Suvel ehk siis praeguse seisuga <strong>Juuni 26-27</strong> (peale jaanipäeva).</p>
