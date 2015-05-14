@@ -31,6 +31,13 @@
 
 <body>
   <div class="container">
+  {% with flashes = get_flashed_messages() %}
+    {% if flashes %}
+      {% for message in flashes %}
+        <div class="alert alert-warning">{{ message }}</div>
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
     <div class="header clearfix">
       <nav>
         <ul class="nav nav-pills pull-right" id="desktop-menu">

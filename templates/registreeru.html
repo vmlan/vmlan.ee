@@ -4,17 +4,22 @@
 {% block content %}
 <header><h1>Registreeru</h1></header>
 <h3>Pileti info</h3>
-<dl class="dl-horizontal">
-  <dt>Vaataja pilet</dt>
-  <dd>2€ (kohapeal 3€)</dd>
-  <dd>Annab võimaluse lihtsalt üritusel ringi vaadata</dd>
-  <dt>Võistleja pilet</dt>
-  <dd>5€ (kohapeal 7€)</dd>
-  <dd>Saad laua pinna koos tooli, pistiku pesa ja võrgukaabliga ja võid osa võtta erinevatest tegevustest nagu näiteks retro nurk</dd>
-  <dt>CS:GO võistleja</dt>
-  <dd>8€ (kohapeal 10€)</dd>
-  <dd>Sama mis võistleja aga lisaks võid osa võtta CS:GO turniirist</dd>
-</dl>
-
-<p>Registreerumine avaneb kohe kohe varsti</p>
+<form method="post" action="/registreeru">
+  <dl class="dl-horizontal">
+    <div class="radio"><input type="radio" name="type" value="spectator" requiredd /></div><dt>Vaataja pilet</dt>
+    <dd>2€ (kohapeal 3€)</dd>
+    <dd>Annab võimaluse lihtsalt üritusel ringi vaadata</dd>
+    <div class="radio"><input type="radio" name="type" value="normcomp" requiredd /></div><dt>Võistleja pilet</dt>
+    <dd>5€ (kohapeal 7€)</dd>
+    <dd>Saad laua pinna koos tooli, pistiku pesa ja võrgukaabliga ja võid osa võtta erinevatest tegevustest nagu näiteks retro nurk</dd>
+    <div class="radio"><input type="radio" name="type" value="csgocomp" requiredd /></div><dt>CS:GO võistleja</dt>
+    <dd>8€ (kohapeal 10€)</dd>
+    <dd>Sama mis võistleja aga lisaks võid osa võtta CS:GO turniirist</dd>
+  </dl>
+  <div class="form-group">
+     <label for="email">Teie email:</label>
+    <input type="email" class="form-control" name="email" id="email">
+  </div>
+  <button type="submit" class="btn btn-default">Telli</button>
+</form>
 {% endblock %}
