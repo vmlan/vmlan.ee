@@ -2,24 +2,39 @@
 {% set tab = {"registreeru":"active"} %}
 {% extends "layout.html" %}
 {% block content %}
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 <header><h1>Registreeru</h1></header>
 <h3>Pileti info</h3>
 <form method="post" action="/registreeru">
   <dl class="dl-horizontal">
-    <div class="radio"><input type="radio" name="type" value="spectator" requiredd /></div><dt>Vaataja pilet</dt>
+    <dt>Vaataja pilet</dt>
+    <div class="radio pull-right"><input type="radio" name="type" value="spectator" required /></div>
     <dd>2€ (kohapeal 3€)</dd>
     <dd>Annab võimaluse lihtsalt üritusel ringi vaadata</dd>
-    <div class="radio"><input type="radio" name="type" value="normcomp" requiredd /></div><dt>Võistleja pilet</dt>
+    <dt>Võistleja pilet</dt>
+    <div class="radio pull-right"><input type="radio" name="type" value="normcomp" required /></div>
     <dd>5€ (kohapeal 7€)</dd>
     <dd>Saad laua pinna koos tooli, pistiku pesa ja võrgukaabliga ja võid osa võtta erinevatest tegevustest nagu näiteks retro nurk</dd>
-    <div class="radio"><input type="radio" name="type" value="csgocomp" requiredd /></div><dt>CS:GO võistleja</dt>
+    <dt>CS:GO võistleja</dt>
+    <div class="radio pull-right"><input type="radio" name="type" value="csgocomp" required /></div>
     <dd>8€ (kohapeal 10€)</dd>
     <dd>Sama mis võistleja aga lisaks võid osa võtta CS:GO turniirist</dd>
   </dl>
   <div class="form-group">
-     <label for="email">Teie email:</label>
-    <input type="email" class="form-control" name="email" id="email">
+    <div class="g-recaptcha" data-sitekey="6Lf19gYTAAAAAIM-nATFZ-IdyUHZaagiocjj5Cbl"></div>
   </div>
-  <button type="submit" class="btn btn-default">Telli</button>
+  <div class="form-group">
+    <label for="email">Teie email:</label>
+    <input type="email" class="form-control" name="email" id="email" required>
+    <button type="submit" class="btn btn-default">Telli</button>
+  </div>
+</form>
+<form method="post" action="/registreeritud">
+  <p>Oled juba registreerinud?</p>
+  <div class="form-group">
+    <label for="regcode">Kood:</label>
+    <input type="text" class="form-control" name="regcode" id="regcode" required>
+    <button type="submit" class="btn btn-default">Logi sisse</button>
+  </div>
 </form>
 {% endblock %}
