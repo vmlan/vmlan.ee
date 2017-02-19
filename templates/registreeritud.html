@@ -1,0 +1,40 @@
+{% set title = "Registreeru" %}
+{% set tab = {"registreeru":"active"} %}
+{% extends "layout.html" %}
+{% block content %}
+<header><h1>Pileti info</h1></header>
+<dl class="dl-horizontal">
+  <dt>Pileti tüüp:</dt>
+  {% if info.type == 'spectator' %}
+  <dd>Vaataja pilet</dd>
+  <dt>Mis teha saab:</dt>
+  <dd>Annab võimaluse lihtsalt üritusel ringi vaadata</dd>
+  <dt>Hind:</dt>
+  <dd>2€</dd>
+  {% elif info.type == 'normcomp' %}
+  <dd>Vōistleja pilet</dd>
+  <dt>Mis teha saab:</dt>
+  <dd>Saad laua pinna koos tooli, pistiku pesa ja võrgukaabliga ja võid osa võtta erinevatest tegevustest nagu näiteks retro nurk</dd>
+  <dt>Hind:</dt>
+  <dd>5€</dd>
+  {% elif info.type == 'csgocomp' %}
+  <dd>CS: GO vōistleja pilet</dd>
+  <dt>Mis teha saab:</dt>
+  <dd>Saad laua pinna koos tooli, pistiku pesa ja võrgukaabliga ja võid osa võtta erinevatest tegevustest nagu näiteks retro nurk ning võid osa võtta CS:GO turniirist</dd>
+  <dt>Hind:</dt>
+  <dd>8€</dd>
+  {% else %}
+  <dt>serveri viga...</dt>
+  {% endif %}
+</dl>
+<p>Maksmise staatus: {% if info.moneypaid == False %}Pole veel makstud! (link tuleb){% elif info.moneypaid == True %}Makstud{% endif %}</p>
+{% if info.type == 'csgocomp' %}
+<p><a href="{{ url_for("tiimid") }}">Halda tiime</a></p>
+{% endif %}
+<p>Kood, mida peate näitama sissepääse juures: <strong>{{ info.id }}</strong></p>
+<p>Ilma koodita ei saa soodustust. Me ei vastuta koodi kaotamise eest.</p>
+{% if info.moneypaid == False %}
+<p><a href="{{ url_for("cancel") }}">Tühista pilet</a></p>
+{% endif %}
+<p><a href="{{ url_for("logout") }}">Välju pileti infost</a></p>
+{% endblock %}
